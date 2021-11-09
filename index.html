@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>css cube</title>
+<style type="text/css">
+	body{margin: 0;}
+	.scene{width: 200px; height: 200px; background: none;
+			opacity: 0.5;position: absolute; transform: translate(-50%,-50%);left: 50%; top: 50vh;
+			perspective: 400px;}
+
+	/*애니메이션과 translate 등 전체적인 효과를 위해 중간에 하나 묶어준다.*/
+	/*preserve-3d는 부모의 perspective를 아래 자식에게까지 전해주는 기능*/
+	.cube{transform-style: preserve-3d; width: 200px; height: 200px;
+			transform: translateZ(-100px);}
+
+	.ani{animation: rtcube 3s infinite linear;}
+
+	.cube div{ width: 200px; height: 200px; position: absolute; color: white;
+				text-align: center; line-height: 200px; opacity: 0.7;
+				backface-visibility:visible ;	}
+				/*backface-visibility는 양면 단면 효과를 위해 넣어줌*/
+
+	.cube div:hover{opacity: 1;}
+
+
+	/*트랜스폼은 한칸씩 띄어쓰면 중첩이 가능*/
+	/*rotate를 먼저 하고 그 다음 translate*/
+	/*중심점 위로 100을 띄운상태에서 중심점을 기준으로 돌려주는게 컨셉이다*/
+	.ctop{background: red; transform: rotateX(90deg) translateZ(100px); }
+	.cbottom{background: green; transform: rotateX(-90deg) translateZ(100px); }
+	.cleft{background: blue; transform: rotateY(90deg) translateZ(100px); }
+	.cright{background: purple; transform: rotateY(-90deg) translateZ(100px); }
+	.cback{background: skyblue; transform: rotateY(-180deg) translateZ(100px); }
+	.cfront{background: yellow; transform:  translateZ(100px); }
+
+	/*애니메이션에도 translateZ를 넣어주어야 제대로 돌아간다*/
+	@keyframes rtcube{
+		to{transform: translateZ(-100px) rotate3d(0.4, -0.7, 0.6, 360deg);}
+	}
+	</style>
+</head>
+<body>
+	<div class="scene">
+		<div class="cube ani">
+			<div class="ctop">top</div>
+			<div class="cbottom">bottom</div>
+			<div class="cleft">left</div>
+			<div class="cright">right</div>
+			<div class="cback">back</div>
+			<div class="cfront">front</div>
+		</div>
+	</div>
+</body>
+</html>
