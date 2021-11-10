@@ -14,7 +14,7 @@
 	/*preserve-3d는 부모의 perspective를 아래 자식에게까지 전해주는 기능*/
 	.cube{transform-style: preserve-3d; width: 200px; height: 200px;
 			transform: translateZ(-100px);}
-
+	/*100씩 밀어주면 전체적으로 100이 튀어나오기때문에 부모는 100을 밀어넣어서 높이를 맞춘다*/
 	.ani{animation: rtcube 3s infinite linear;}
 
 	.cube div{ width: 200px; height: 200px; position: absolute; color: white;
@@ -27,7 +27,7 @@
 
 	/*트랜스폼은 한칸씩 띄어쓰면 중첩이 가능*/
 	/*rotate를 먼저 하고 그 다음 translate*/
-	/*중심점 위로 100을 띄운상태에서 중심점을 기준으로 돌려주는게 컨셉이다*/
+	/*먼저 돌리고나서 그 면의 수직방향으로 100씩 밀어준다*/
 	.ctop{background: red; transform: rotateX(90deg) translateZ(100px); }
 	.cbottom{background: green; transform: rotateX(-90deg) translateZ(100px); }
 	.cleft{background: blue; transform: rotateY(90deg) translateZ(100px); }
