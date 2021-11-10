@@ -10,8 +10,10 @@
 			opacity: 0.5;position: absolute; transform: translate(-50%,-50%);left: 50%; top: 50vh;
 			perspective: 400px;}
 
-	/*애니메이션과 translate 등 전체적인 효과를 위해 중간에 하나 묶어준다.*/
+	/*애니메이션과 translate 등 전체적인 효과를 위해 중간에 cube로 묶어준다.*/
 	/*preserve-3d는 부모의 perspective를 아래 자식에게까지 전해주는 기능*/
+	/*중간에 묶어주는 애한테 애니메이션을 주고 퍼스펙티브는 scene한테 주는것이 어려운부분이다*/
+	
 	.cube{transform-style: preserve-3d; width: 200px; height: 200px;
 			transform: translateZ(-100px);}
 	/*100씩 밀어주면 전체적으로 100이 튀어나오기때문에 부모는 100을 밀어넣어서 높이를 맞춘다*/
